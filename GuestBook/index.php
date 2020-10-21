@@ -64,7 +64,7 @@
                         }
 
                         echo '
-                            <div class="card mb-3" style="width: 30rem;">
+                            <div class="card mb-3" style="width: 29rem;">
                                 <div class="card-body">
                                     <form method="POST" action="php/delete.php" class="d-inline"><button type="submit" name="id" value="'. $row["id_pri"] .'" class="fas fa-times float-right btn btn-success"></button></form>
                                     <h5 class="card-title d-inline">'. $row["jmeno"] .' ('. date("d.m.Y H:i", $row["timestamp"]) .')</h5>
@@ -108,7 +108,7 @@
                             </div>
                         </form>
                         
-                        <div class="row">
+                        <div class="row justify-content-center">
                     ';
 
                     $sql = "SELECT * FROM prispevky ORDER BY timestamp DESC;";
@@ -117,15 +117,15 @@
                     $div = 0;
                     while ($row = $result->fetch_assoc()) {
                         if ($div == 2) {
-                            echo '<div class="row"><div class="col">';
+                            echo '<div class="row justify-content-center"><div class="col-6">';
                             $div = 0;
                         }
                         else {
-                            echo '<div class="col">';
+                            echo '<div class="col-6">';
                         }
 
                         echo '
-                            <div class="card mb-3" style="width: 30rem;">
+                            <div class="card mb-3" style="width: 29rem;">
                                 <div class="card-body">
                                     <h5 class="card-title">'. $row["jmeno"] .' ('. date("d.m.Y H:i", $row["timestamp"]) .')</h5>
                                     <p>'; for($i = 0; $i < $row["hodnoceni"]; $i++){ echo "<i class='fas fa-star'></i>"; } echo '</p>
@@ -142,7 +142,6 @@
                         }
                         $div++;
                     }
-                    
                 }
 
                 else {
