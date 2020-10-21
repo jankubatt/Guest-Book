@@ -11,6 +11,6 @@
     $sql = "INSERT INTO prispevky (hodnoceni, text, jmeno, timestamp) VALUES ('$hodnoceni', '$text', '$jmeno', '$timestamp');";
     $conn->query($sql);
 
-    header("Location: index.php");
+    header("Location: ../index.php");
     exit();
 ?>              

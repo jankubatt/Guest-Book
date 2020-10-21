@@ -1,5 +1,5 @@
 <?php 
-    include_once("conn.php");
+    include_once("php/conn.php");
     session_start();
 
     if (!isset($_SESSION["loggedin"])) {
@@ -65,8 +65,8 @@
                         echo '
                         <div class="card mb-3" style="width: 30rem;">
                             <div class="card-body">
-                                <form method="POST" action="delete.php" class="d-inline"><button type="submit" name="id" value="'. $row["id_pri"] .'" class="fas fa-times float-right btn btn-success"></button></form>
-                                <h5 class="card-title d-inline">'. $row["jmeno"] .' ('. $row["timestamp"] .')</h5>
+                                <form method="POST" action="php/delete.php" class="d-inline"><button type="submit" name="id" value="'. $row["id_pri"] .'" class="fas fa-times float-right btn btn-success"></button></form>
+                                <h5 class="card-title d-inline">'. $row["jmeno"] .' ('. date("d.m.Y H:i", $row["timestamp"]) .')</h5>
                                 <p class="mt-1">'; for($i = 0; $i < $row["hodnoceni"]; $i++){ echo "<i class='fas fa-star'></i>"; } echo '</p>
                                 <p class="card-text">'. $row["text"] .'</p>
                             </div>
@@ -85,7 +85,7 @@
 
                 else if ($_SESSION["loggedin"] == 1) {
                     echo '
-                    <form method="POST" action="create.php" style="margin-bottom: 10em">
+                    <form method="POST" action="php/create.php" style="margin-bottom: 10em">
                         <div class="form-group">
                             <label>Hodnocení</label>
                             <select class="form-control w-25" name="hodnoceni">
@@ -150,7 +150,7 @@
                     echo 
                     '<div class="row mb-5">
                         <div class="col text-center">
-                            <a href="login.php" type="submit" class="form-control btn btn-success mt-5 text-center" style="width: 10em">Přihlásit se</a>
+                            <a href="login.php" type="submit" class="btn btn-success mt-5 text-center" style="width: 10em">Přihlásit se</a>
                         </div>
                     </div>
 
@@ -175,7 +175,7 @@
                         echo '
                         <div class="card mb-3" style="width: 30rem;">
                             <div class="card-body">
-                                <h5 class="card-title">'. $row["jmeno"] .' ('. $row["timestamp"] .')</h5>
+                                <h5 class="card-title">'. $row["jmeno"] .' ('. date("d.m.Y H:i", $row["timestamp"]) .')</h5>
                                 <p>'; for($i = 0; $i < $row["hodnoceni"]; $i++){ echo "<i class='fas fa-star'></i>"; } echo '</p>
                                 <p class="card-text">'. $row["text"] .'</p>
                             </div>

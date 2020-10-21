@@ -5,6 +5,6 @@
     $sql = "DELETE FROM prispevky WHERE id_pri='$id';";
     $conn->query($sql);
 
-    header("Location: index.php");
+    header("Location: ../index.php");
     exit();
 ?>
