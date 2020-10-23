@@ -11,8 +11,15 @@
     include_once("conn.php");
     session_start();
 
+    function test_input($data) {
+        $data = trim($data);
+        $data = stripslashes($data);
+        $data = htmlspecialchars($data);
+        return $data;
+    }
+
     $hodnoceni = $_POST["hodnoceni"];
-    $text = $_POST["text"];
+    $text = test_input($_POST["text"]);
     $jmeno = $_SESSION["jmeno"];
     $date = new DateTime();
     $timestamp = $date->getTimestamp();

@@ -44,8 +44,15 @@
 
             <?php
                 if (isset($_POST["submit"])) {
+                    function test_input($data) {
+                        $data = trim($data);
+                        $data = stripslashes($data);
+                        $data = htmlspecialchars($data);
+                        return $data;
+                    }
+                    
                     $_SESSION["loggedin"] = 1;
-                    $_SESSION["jmeno"] = $_POST["jmeno"];
+                    $_SESSION["jmeno"] = test_input($_POST["jmeno"]);
 
                     if($_SESSION["jmeno"] == "admin") {
                         $_SESSION["admin"] = 1;
