@@ -21,10 +21,8 @@
     $hodnoceni = $_POST["hodnoceni"];
     $text = test_input($_POST["text"]);
     $jmeno = $_SESSION["jmeno"];
-    $date = new DateTime();
-    $timestamp = $date->getTimestamp();
 
-    $sql = "INSERT INTO prispevky (hodnoceni, text, jmeno, timestamp) VALUES ('$hodnoceni', '$text', '$jmeno', '$timestamp');";
+    $sql = "INSERT INTO prispevky (hodnoceni, text, jmeno) VALUES ('$hodnoceni', '$text', '$jmeno');";
     $conn->query($sql);
 
     header("Location: ../index.php");

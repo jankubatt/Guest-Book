@@ -55,6 +55,8 @@
                     
                     $div = 0;
                     while ($row = $result->fetch_assoc()) {
+                        $row["timestamp"] = date("d.m.Y H:i", strtotime($row["timestamp"]));
+
                         if ($div == 2) {
                             echo '<div class="row"><div class="col">';
                             $div = 0;
@@ -66,8 +68,8 @@
                         echo '
                             <div class="card mb-3" style="width: 29rem;">
                                 <div class="card-body">
-                                    <form method="POST" action="php/delete.php" class="d-inline"><button type="submit" name="id" value="'. $row["id_pri"] .'" class="fas fa-times float-right btn btn-success"></button></form>
-                                    <h5 class="card-title d-inline">'. $row["jmeno"] .' ('. date("d.m.Y H:i", $row["timestamp"]) .')</h5>
+                                    <a href="php/delete.php?id='. $row["id_pri"] .'" class="d-inline"><button class="fas fa-times float-right btn btn-success"></button></a>
+                                    <h5 class="card-title d-inline">'. $row["jmeno"] .' ('. $row["timestamp"] .')</h5>
                                     <p class="mt-1">'; for($i = 0; $i < $row["hodnoceni"]; $i++){ echo "<i class='fas fa-star'></i>"; } echo '</p>
                                     <p class="card-text">'. $row["text"] .'</p>
                                 </div>
@@ -116,6 +118,8 @@
                     
                     $div = 0;
                     while ($row = $result->fetch_assoc()) {
+                        $row["timestamp"] = date("d.m.Y H:i", strtotime($row["timestamp"]));
+
                         if ($div == 2) {
                             echo '<div class="row justify-content-center"><div class="col-6">';
                             $div = 0;
@@ -127,7 +131,7 @@
                         echo '
                             <div class="card mb-3" style="width: 29rem;">
                                 <div class="card-body">
-                                    <h5 class="card-title">'. $row["jmeno"] .' ('. date("d.m.Y H:i", $row["timestamp"]) .')</h5>
+                                    <h5 class="card-title">'. $row["jmeno"] .' ('. $row["timestamp"] .')</h5>
                                     <p>'; for($i = 0; $i < $row["hodnoceni"]; $i++){ echo "<i class='fas fa-star'></i>"; } echo '</p>
                                     <p class="card-text">'. $row["text"] .'</p>
                                 </div>
@@ -160,6 +164,8 @@
                     
                     $div = 0;
                     while ($row = $result->fetch_assoc()) {
+                        $row["timestamp"] = date("d.m.Y H:i", strtotime($row["timestamp"]));
+
                         if ($div == 2) {
                             echo '<div class="row"><div class="col">';
                             $div = 0;
@@ -171,7 +177,7 @@
                         echo '
                             <div class="card mb-3" style="width: 30rem;">
                                 <div class="card-body">
-                                    <h5 class="card-title">'. $row["jmeno"] .' ('. date("d.m.Y H:i", $row["timestamp"]) .')</h5>
+                                    <h5 class="card-title">'. $row["jmeno"] .' ('. $row["timestamp"] .')</h5>
                                     <p>'; for($i = 0; $i < $row["hodnoceni"]; $i++){ echo "<i class='fas fa-star'></i>"; } echo '</p>
                                     <p class="card-text">'. $row["text"] .'</p>
                                 </div>

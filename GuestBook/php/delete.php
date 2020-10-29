@@ -9,7 +9,7 @@
 
 <?php
     include_once("conn.php");
-    $id = $_POST["id"];
+    $id = $_GET["id"];
 
     $sql = "DELETE FROM prispevky WHERE id_pri='$id';";
     $conn->query($sql);
